@@ -58,6 +58,16 @@ int main()
     mav(1, -500);
     msleep(200);
     }
+    mav(0,500); //going forwards after the turn
+    mav(1,500);
+    msleep(200);
+    set_servo_position (1,r3pos); // assuming that the wrist servo alters the height
+    msleep(100);
+    set_servo_posiiton (wrist_servo, claw_open); // open claw to drop ring on v.e.
+    msleep(100); //wait to allow the ring to drop
+    mav (0,-500);//drive backwards
+    mav(1,-500);
+    msleep(200);
     ao();
     disable_servos();
     return 0;
